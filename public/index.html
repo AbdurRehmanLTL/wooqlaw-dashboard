@@ -243,58 +243,821 @@
         <div class="relative w-full h-full px-5 overflow-x-hidden overflow-y-auto bg-gray-100 md:px-16 scrollbar-hide">
             <main>
                 <div class="py-5">
-                    <div class="flex flex-wrap">
+                    <div class="flex flex-wrap gap-3">
                         <div class="grow">
                             <div x-data="{ activeTab: 'inbox' }">
-                                <ul class="flex flex-wrap gap-2" role="tablist">
+                                <ul class="grid grid-cols-4 mb-1 gap-px text-sm font-medium rounded-t-xl overflow-hidden w-fit" role="tablist">
                                   <li>
                                     <a
                                       @click.prevent="activeTab = 'inbox'"
-                                      :class="{ 'button-active': activeTab === 'inbox' }"
+                                      :class="activeTab === 'inbox' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
                                       href="#inbox"
-                                      class="button"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
                                       role="tab"
                                       aria-selected="true"
                                     >
-                                    Inbox
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.5647 12.0269C18.9947 11.8769 18.3247 11.7969 17.5247 11.7969C16.4147 11.7969 16.0047 12.0669 15.4347 12.4969C15.4047 12.5169 15.3747 12.5469 15.3447 12.5769L14.3947 13.5869C13.5947 14.4269 12.1547 14.4369 11.3547 13.5769L10.4047 12.5769C10.3747 12.5469 10.3447 12.5169 10.3147 12.4969C9.74469 12.0669 9.33469 11.7969 8.22469 11.7969C7.42469 11.7969 6.75469 11.8769 6.18469 12.0269C3.80469 12.6669 3.80469 14.5569 3.80469 16.2169V17.1469C3.80469 19.6569 3.80469 22.4969 9.15469 22.4969H16.5947C20.1447 22.4969 21.9447 20.6969 21.9447 17.1469V16.2169C21.9447 14.5569 21.9447 12.6669 19.5647 12.0269ZM15.2047 18.8969H10.5447C10.1647 18.8969 9.85469 18.5869 9.85469 18.1969C9.85469 17.8069 10.1647 17.4969 10.5447 17.4969H15.2047C15.5847 17.4969 15.8947 17.8069 15.8947 18.1969C15.8947 18.5869 15.5847 18.8969 15.2047 18.8969Z"/>
+                                            <path d="M13.5431 3.17C13.5431 2.8 13.2431 2.5 12.8731 2.5C12.5031 2.5 12.2031 2.8 12.2031 3.17V4.5H13.5531V3.17H13.5431Z"/>
+                                            <path d="M20.0841 8.92V10.62C20.0441 10.6 19.9941 10.59 19.9541 10.58H19.9441C19.2341 10.39 18.4441 10.3 17.5241 10.3C15.9841 10.3 15.2541 10.75 14.5941 11.25C14.4541 11.35 14.3541 11.45 14.2541 11.55L13.3041 12.56C13.2041 12.66 13.0441 12.72 12.8741 12.72C12.7941 12.72 12.5941 12.71 12.4441 12.55L11.4641 11.52C11.3641 11.41 11.2441 11.32 11.2141 11.3C10.4941 10.75 9.76406 10.3 8.22406 10.3C7.30406 10.3 6.51406 10.39 5.79406 10.58C5.75406 10.59 5.70406 10.6 5.66406 10.62V8.92C5.66406 6.85 5.66406 4.5 10.0841 4.5H12.2041V7.95L11.5541 7.3C11.2841 7.03 10.8641 7.03 10.5941 7.3C10.3341 7.56 10.3341 7.99 10.5941 8.25L12.3941 10.05C12.4041 10.06 12.4141 10.06 12.4141 10.07C12.4741 10.12 12.5441 10.17 12.6141 10.2C12.7041 10.23 12.7841 10.25 12.8741 10.25C12.9641 10.25 13.0441 10.23 13.1341 10.2C13.2141 10.17 13.2841 10.12 13.3541 10.05L15.1541 8.25C15.4141 7.99 15.4141 7.56 15.1541 7.3C14.8841 7.03 14.4641 7.03 14.1941 7.3L13.5441 7.95V4.5H15.6641C20.0841 4.5 20.0841 6.85 20.0841 8.92Z"/>
+                                        </svg>
+                                        <span>Inbox</span>
                                     </a>
                                   </li>
                               
                                   <li>
                                     <a
-                                      @click.prevent="activeTab = 'specs'"
-                                      :class="{ 'button-active': activeTab === 'specs' }"
-                                      href="#specs"
-                                      class="button"
+                                      @click.prevent="activeTab = 'case'"
+                                      :class="activeTab === 'case' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
+                                      href="#case"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
                                       role="tab"
                                       aria-selected="false"
                                     >
-                                      Specs
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.425 12.7344H17.945C16.965 12.7344 16.095 13.2744 15.655 14.1544L14.815 15.8144C14.615 16.2144 14.215 16.4644 13.775 16.4644H10.495C10.185 16.4644 9.745 16.3944 9.455 15.8144L8.615 14.1644C8.175 13.2944 7.295 12.7444 6.325 12.7444H2.825C2.435 12.7444 2.125 13.0544 2.125 13.4444V16.7044C2.125 20.3344 4.305 22.5044 7.945 22.5044H16.325C19.755 22.5044 21.865 20.6244 22.125 17.2844V13.4344C22.125 13.0544 21.815 12.7344 21.425 12.7344Z"/>
+                                        <path d="M16.315 2.5H7.935C4.295 2.5 2.125 4.67 2.125 8.31V11.35C2.345 11.27 2.585 11.23 2.825 11.23H6.325C7.875 11.23 9.265 12.09 9.955 13.48L10.705 14.95H13.565L14.315 13.47C15.005 12.09 16.395 11.23 17.945 11.23H21.425C21.665 11.23 21.905 11.27 22.125 11.35V8.31C22.125 4.67 19.955 2.5 16.315 2.5ZM10.575 5.91H13.675C14.055 5.91 14.375 6.22 14.375 6.6C14.375 6.99 14.055 7.3 13.675 7.3H10.575C10.195 7.3 9.875 6.99 9.875 6.6C9.875 6.22 10.195 5.91 10.575 5.91ZM14.455 10.09H9.795C9.415 10.09 9.105 9.78 9.105 9.4C9.105 9.01 9.415 8.7 9.795 8.7H14.455C14.835 8.7 15.145 9.01 15.145 9.4C15.145 9.78 14.835 10.09 14.455 10.09Z"/>
+                                    </svg>                                        
+                                    <span>Case</span>
+                                    
                                     </a>
                                   </li>
                               
                                   <li>
                                     <a
-                                      @click.prevent="activeTab = 'reviews'"
-                                      :class="{ 'button-active': activeTab === 'reviews' }"
-                                      href="#reviews"
-                                      class="button"
+                                      @click.prevent="activeTab = 'inquiries'"
+                                      :class="activeTab === 'inquiries' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
+                                      href="#inquiries"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
                                       role="tab"
                                     >
-                                      Reviews
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.875 20.5V22.5C9.875 22.9142 10.2108 23.25 10.625 23.25C11.0392 23.25 11.375 22.9142 11.375 22.5V20.5H9.875Z"/>
+                                        <path d="M15.375 20.5H13.875V22.5C13.875 22.9142 14.2108 23.25 14.625 23.25C15.0392 23.25 15.375 22.9142 15.375 22.5V20.5Z"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7596 7.08471L18.0157 7.03344C18.4314 6.95022 18.8613 6.98995 19.2564 7.14813C19.9467 7.42453 20.7016 7.47616 21.4208 7.29618L21.4823 7.2808C22.0059 7.14975 22.375 6.66299 22.375 6.10336V3.97284C22.375 3.23503 21.7108 2.69145 21.0204 2.86421C20.624 2.96342 20.2079 2.93496 19.8273 2.78261L19.7543 2.75335C19.1172 2.49828 18.4241 2.43421 17.7537 2.56841L17.305 2.65824C16.7651 2.76632 16.375 3.25722 16.375 3.82846V10.7807C16.375 11.178 16.685 11.5 17.0673 11.5C17.4497 11.5 17.7596 11.178 17.7596 10.7807V7.08471Z"/>
+                                        <path d="M14.875 6.5V10.7807C14.875 11.9518 15.803 13 17.0673 13C18.3316 13 19.2596 11.9518 19.2596 10.7807V8.72795C20.0205 8.93335 20.8196 8.95735 21.595 8.79496C22.0872 9.63671 22.375 10.6541 22.375 11.75V17.9253C22.375 19.3473 21.3869 20.5 20.1681 20.5H12.875V11.75C12.875 9.72014 12.0429 7.77604 10.6576 6.5H14.875Z"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.375 11.75C2.375 8.85051 4.38972 6.5 6.875 6.5C9.36028 6.5 11.375 8.85051 11.375 11.75V20.5H4.60756C3.37455 20.5 2.375 19.3339 2.375 17.8953V11.75ZM4.625 16.5C4.625 16.0858 4.96079 15.75 5.375 15.75H8.375C8.78921 15.75 9.125 16.0858 9.125 16.5C9.125 16.9142 8.78921 17.25 8.375 17.25H5.375C4.96079 17.25 4.625 16.9142 4.625 16.5Z"/>
+                                    </svg>                                        
+                                    <span>Inquiries</span>
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a
+                                      @click.prevent="activeTab = 'timesheet'"
+                                      :class="activeTab === 'timesheet' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
+                                      href="#timesheet"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
+                                      role="tab"
+                                    >
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.6272 2.49219C6.65719 2.49219 2.61719 6.53219 2.61719 11.5022C2.61719 16.4722 6.65719 20.5122 11.6272 20.5122C16.5972 20.5122 20.6372 16.4722 20.6372 11.5022C20.6372 6.53219 16.5972 2.49219 11.6272 2.49219ZM11.6272 13.7522H8.62719C8.21719 13.7522 7.87719 13.4122 7.87719 13.0022C7.87719 12.5922 8.21719 12.2522 8.62719 12.2522H11.6272C12.0372 12.2522 12.3772 12.5922 12.3772 13.0022C12.3772 13.4122 12.0372 13.7522 11.6272 13.7522ZM14.6272 10.7522H8.62719C8.21719 10.7522 7.87719 10.4122 7.87719 10.0022C7.87719 9.59219 8.21719 9.25219 8.62719 9.25219H14.6272C15.0372 9.25219 15.3772 9.59219 15.3772 10.0022C15.3772 10.4122 15.0372 10.7522 14.6272 10.7522Z"/>
+                                        <path d="M22.617 19.45C22.287 18.84 21.587 18.5 20.647 18.5C19.937 18.5 19.327 18.79 18.967 19.29C18.607 19.79 18.527 20.46 18.747 21.13C19.177 22.43 19.927 22.72 20.337 22.77C20.397 22.78 20.457 22.78 20.527 22.78C20.967 22.78 21.647 22.59 22.307 21.6C22.837 20.83 22.937 20.06 22.617 19.45Z"/>
+                                    </svg>                                        
+                                    <span>Time Sheet</span>
                                     </a>
                                   </li>
                                 </ul>
                               
                                 <div class="content">
-                                  <div x-cloak x-show="activeTab === 'inbox'" role="tabpanel">Details</div>
-                                  <div x-cloak x-show="activeTab === 'specs'" role="tabpanel">Specs</div>
-                                  <div x-cloak x-show="activeTab === 'reviews'" role="tabpanel">Reviews</div>
+                                  <div x-cloak x-show="activeTab === 'inbox'" role="tabpanel">
+                                        <div class="">
+                                            <div class="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
+                                                <div class="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
+                                                    <div class="flex items-center flex-1 space-x-4">
+                                                        <h5>
+                                                            <span class="text-gray-500">All Products:</span>
+                                                            <span class="dark:text-white">123456</span>
+                                                        </h5>
+                                                        <h5>
+                                                            <span class="text-gray-500">Total sales:</span>
+                                                            <span class="dark:text-white">$88.4k</span>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
+                                                        <button type="button" class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                                                            <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                                <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                                                            </svg>
+                                                            Add new product
+                                                        </button>
+                                                        <button type="button" class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                                            <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                                            </svg>
+                                                            Update stocks 1/250
+                                                        </button>
+                                                        <button type="button" class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                                            <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                                                            </svg>
+                                                            Export
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="overflow-x-auto">
+                                                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                            <tr>
+                                                                <th scope="col" class="p-4">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-all" type="checkbox" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-all" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </th>
+                                                                <th scope="col" class="px-4 py-3">Product</th>
+                                                                <th scope="col" class="px-4 py-3">Category</th>
+                                                                <th scope="col" class="px-4 py-3">Stock</th>
+                                                                <th scope="col" class="px-4 py-3">Sales/Day</th>
+                                                                <th scope="col" class="px-4 py-3">Sales/Month</th>
+                                                                <th scope="col" class="px-4 py-3">Rating</th>
+                                                                <th scope="col" class="px-4 py-3">Sales</th>
+                                                                <th scope="col" class="px-4 py-3">Revenue</th>
+                                                                <th scope="col" class="px-4 py-3">Last Update</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Apple iMac 27&#34;
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Desktop PC</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                                                                        95
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.47</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.47</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">5.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        1.6M
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$3.2M</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Apple iMac 20&#34;
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Desktop PC</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                                                                        108
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.15</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.32</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">5.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        6M
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$785K</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">This week</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-iphone-14.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Apple iPhone 14
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Phone</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-green-400 rounded-full"></div>
+                                                                        24
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.00</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.95</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">4.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        1.2M
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$3.2M</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-ipad-air.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Apple iPad Air
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Tablet</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-red-500 rounded-full"></div>
+                                                                        287
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.47</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.00</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">4.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        298K
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$425K</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/xbox-series-s.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Xbox Series S
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Console</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-yellow-300 rounded-full"></div>
+                                                                        450
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.61</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.30</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">5.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        99
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$345K</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">This week</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/playstation-5.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    PlayStation 5
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Console</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-green-400 rounded-full"></div>
+                                                                        2435
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">1.41</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.11</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">4.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        2.1M
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$4.2M</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">This week</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/xbox-series-x.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Xbox Series X
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Gaming/Console</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-orange-500 rounded-full"></div>
+                                                                        235
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">7.09</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">3.32</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">5.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        989K
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$2.27M</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">This week</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-watch-se.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Apple Watch SE
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Watch</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-yellow-300 rounded-full"></div>
+                                                                        433
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">4.96</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.74</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">5.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        102
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$45K</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">2 weeks ago</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/nikon-d850.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    NIKON D850
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Photo/Video</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-orange-400 rounded-full"></div>
+                                                                        351
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.20</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.74</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">3.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        1.2M
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$1.52M</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">3 weeks ago</td>
+                                                            </tr>
+                                                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                                <td class="w-4 px-4 py-3">
+                                                                    <div class="flex items-center">
+                                                                        <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                                                    </div>
+                                                                </td>
+                                                                <th scope="row" class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/benq-ex2710q.png" alt="iMac Front Image" class="w-auto h-8 mr-3">
+                                                                    Monitor BenQ EX2710Q
+                                                                </th>
+                                                                <td class="px-4 py-2">
+                                                                    <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">TV/Monitor</span>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <div class="inline-block w-4 h-4 mr-2 bg-green-500 rounded-full"></div>
+                                                                        1242
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">4.12</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">0.30</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                                        </svg>
+                                                                        <span class="ml-1 text-gray-500 dark:text-gray-400">4.0</span>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                                    <div class="flex items-center">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-gray-400" aria-hidden="true">
+                                                                            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                                                                        </svg>
+                                                                        211K
+                                                                    </div>
+                                                                </td>
+                                                                <td class="px-4 py-2">$1.2M</td>
+                                                                <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">Just now</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
+                                                    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                                        Showing
+                                                        <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
+                                                        of
+                                                        <span class="font-semibold text-gray-900 dark:text-white">1000</span>
+                                                    </span>
+                                                    <ul class="inline-flex items-stretch -space-x-px">
+                                                        <li>
+                                                            <a href="#" class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                                                <span class="sr-only">Previous</span>
+                                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                                                </svg>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 py-2 text-sm leading-tight border text-primary-600 bg-primary-50 border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">100</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                                                <span class="sr-only">Next</span>
+                                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                                                </svg>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                  </div>
+                                  <div x-cloak x-show="activeTab === 'case'" role="tabpanel">Case</div>
+                                  <div x-cloak x-show="activeTab === 'inquiries'" role="tabpanel">Inquiries</div>
+                                  <div x-cloak x-show="activeTab === 'timesheet'" role="tabpanel">Time Sheet</div>
                                 </div>
                             </div>
                         </div>
                         <div class="shrink-0 w-full max-w-[400px]">
-                            ddd 
+                            <div x-data="{ activeTab: 'timeline' }">
+                                <ul class="grid grid-cols-3 mb-1 gap-px text-sm font-medium rounded-t-xl overflow-hidden w-full" role="tablist">
+                                  <li>
+                                    <a
+                                      @click.prevent="activeTab = 'timeline'"
+                                      :class="activeTab === 'timeline' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
+                                      href="#timeline"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
+                                      role="tab"
+                                      aria-selected="true"
+                                    >
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.9234 14H4.12344C2.62344 14 2.02344 14.64 2.02344 16.23V20.27C2.02344 21.86 2.62344 22.5 4.12344 22.5H19.9234C21.4234 22.5 22.0234 21.86 22.0234 20.27V16.23C22.0234 14.64 21.4234 14 19.9234 14Z"/>
+                                            <path d="M12.9234 2.5H4.12344C2.62344 2.5 2.02344 3.14 2.02344 4.73V8.77C2.02344 10.36 2.62344 11 4.12344 11H12.9234C14.4234 11 15.0234 10.36 15.0234 8.77V4.73C15.0234 3.14 14.4234 2.5 12.9234 2.5Z"/>
+                                        </svg>
+                                        <span>Timeline</span>
+                                    </a>
+                                  </li>
+                              
+                                  <li>
+                                    <a
+                                      @click.prevent="activeTab = 'calendar'"
+                                      :class="activeTab === 'calendar' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
+                                      href="#calendar"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
+                                      role="tab"
+                                      aria-selected="false"
+                                    >
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.2736 4.06V2.5C17.2736 2.09 16.9336 1.75 16.5236 1.75C16.1136 1.75 15.7736 2.09 15.7736 2.5V4H9.27367V2.5C9.27367 2.09 8.93367 1.75 8.52367 1.75C8.11367 1.75 7.77367 2.09 7.77367 2.5V4.06C5.07367 4.31 3.76367 5.92 3.56367 8.31C3.54367 8.6 3.78367 8.84 4.06367 8.84H20.9836C21.2736 8.84 21.5136 8.59 21.4836 8.31C21.2836 5.92 19.9736 4.31 17.2736 4.06Z"/>
+                                        <path d="M20.5234 10.3359H4.52344C3.97344 10.3359 3.52344 10.7859 3.52344 11.3359V17.4959C3.52344 20.4959 5.02344 22.4959 8.52344 22.4959H16.5234C20.0234 22.4959 21.5234 20.4959 21.5234 17.4959V11.3359C21.5234 10.7859 21.0734 10.3359 20.5234 10.3359ZM9.73344 18.7059C9.68344 18.7459 9.63344 18.7959 9.58344 18.8259C9.52344 18.8659 9.46344 18.8959 9.40344 18.9159C9.34344 18.9459 9.28344 18.9659 9.22344 18.9759C9.15344 18.9859 9.09344 18.9959 9.02344 18.9959C8.89344 18.9959 8.76344 18.9659 8.64344 18.9159C8.51344 18.8659 8.41344 18.7959 8.31344 18.7059C8.13344 18.5159 8.02344 18.2559 8.02344 17.9959C8.02344 17.7359 8.13344 17.4759 8.31344 17.2859C8.41344 17.1959 8.51344 17.1259 8.64344 17.0759C8.82344 16.9959 9.02344 16.9759 9.22344 17.0159C9.28344 17.0259 9.34344 17.0459 9.40344 17.0759C9.46344 17.0959 9.52344 17.1259 9.58344 17.1659C9.63344 17.2059 9.68344 17.2459 9.73344 17.2859C9.91344 17.4759 10.0234 17.7359 10.0234 17.9959C10.0234 18.2559 9.91344 18.5159 9.73344 18.7059ZM9.73344 15.2059C9.54344 15.3859 9.28344 15.4959 9.02344 15.4959C8.76344 15.4959 8.50344 15.3859 8.31344 15.2059C8.13344 15.0159 8.02344 14.7559 8.02344 14.4959C8.02344 14.2359 8.13344 13.9759 8.31344 13.7859C8.59344 13.5059 9.03344 13.4159 9.40344 13.5759C9.53344 13.6259 9.64344 13.6959 9.73344 13.7859C9.91344 13.9759 10.0234 14.2359 10.0234 14.4959C10.0234 14.7559 9.91344 15.0159 9.73344 15.2059ZM13.2334 18.7059C13.0434 18.8859 12.7834 18.9959 12.5234 18.9959C12.2634 18.9959 12.0034 18.8859 11.8134 18.7059C11.6334 18.5159 11.5234 18.2559 11.5234 17.9959C11.5234 17.7359 11.6334 17.4759 11.8134 17.2859C12.1834 16.9159 12.8634 16.9159 13.2334 17.2859C13.4134 17.4759 13.5234 17.7359 13.5234 17.9959C13.5234 18.2559 13.4134 18.5159 13.2334 18.7059ZM13.2334 15.2059C13.1834 15.2459 13.1334 15.2859 13.0834 15.3259C13.0234 15.3659 12.9634 15.3959 12.9034 15.4159C12.8434 15.4459 12.7834 15.4659 12.7234 15.4759C12.6534 15.4859 12.5934 15.4959 12.5234 15.4959C12.2634 15.4959 12.0034 15.3859 11.8134 15.2059C11.6334 15.0159 11.5234 14.7559 11.5234 14.4959C11.5234 14.2359 11.6334 13.9759 11.8134 13.7859C11.9034 13.6959 12.0134 13.6259 12.1434 13.5759C12.5134 13.4159 12.9534 13.5059 13.2334 13.7859C13.4134 13.9759 13.5234 14.2359 13.5234 14.4959C13.5234 14.7559 13.4134 15.0159 13.2334 15.2059ZM16.7334 18.7059C16.5434 18.8859 16.2834 18.9959 16.0234 18.9959C15.7634 18.9959 15.5034 18.8859 15.3134 18.7059C15.1334 18.5159 15.0234 18.2559 15.0234 17.9959C15.0234 17.7359 15.1334 17.4759 15.3134 17.2859C15.6834 16.9159 16.3634 16.9159 16.7334 17.2859C16.9134 17.4759 17.0234 17.7359 17.0234 17.9959C17.0234 18.2559 16.9134 18.5159 16.7334 18.7059ZM16.7334 15.2059C16.6834 15.2459 16.6334 15.2859 16.5834 15.3259C16.5234 15.3659 16.4634 15.3959 16.4034 15.4159C16.3434 15.4459 16.2834 15.4659 16.2234 15.4759C16.1534 15.4859 16.0834 15.4959 16.0234 15.4959C15.7634 15.4959 15.5034 15.3859 15.3134 15.2059C15.1334 15.0159 15.0234 14.7559 15.0234 14.4959C15.0234 14.2359 15.1334 13.9759 15.3134 13.7859C15.4134 13.6959 15.5134 13.6259 15.6434 13.5759C15.8234 13.4959 16.0234 13.4759 16.2234 13.5159C16.2834 13.5259 16.3434 13.5459 16.4034 13.5759C16.4634 13.5959 16.5234 13.6259 16.5834 13.6659C16.6334 13.7059 16.6834 13.7459 16.7334 13.7859C16.9134 13.9759 17.0234 14.2359 17.0234 14.4959C17.0234 14.7559 16.9134 15.0159 16.7334 15.2059Z"/>
+                                    </svg>                                                                              
+                                    <span>Calendar</span>
+                                    
+                                    </a>
+                                  </li>
+                              
+                                  <li>
+                                    <a
+                                      @click.prevent="activeTab = 'notes'"
+                                      :class="activeTab === 'notes' ? 'text-violet-700 border-b-2 border-violet-700' : 'text-gray-500 border-b-2 border-white'"
+                                      href="#notes"
+                                      class="p-4 flex justify-center gap-1 bg-white items-center"
+                                      role="tab"
+                                    >
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0235 22.3389C17.0107 22.3417 16.9979 22.3444 16.9851 22.3472L16.9816 22.3479C16.9658 22.3512 16.95 22.3545 16.9342 22.3578L16.9327 22.3581C16.949 22.3548 16.9653 22.3514 16.9816 22.3479C16.9956 22.3449 17.0095 22.3419 17.0235 22.3389Z"/>
+                                        <path d="M22.5234 15.5C21.9396 15.5 21.4474 15.5 21.0234 15.5076C20.0958 15.5241 19.4953 15.5768 18.9784 15.7447C17.4562 16.2393 16.2627 17.4327 15.7682 18.9549C15.6002 19.4718 15.5475 20.0724 15.531 21C15.5234 21.4239 15.5234 21.9162 15.5234 22.5C16.0061 22.5 16.4774 22.4511 16.9327 22.3581L16.9342 22.3578L16.9816 22.3479L16.9851 22.3472L17.0235 22.3389C19.6854 21.7577 21.7812 19.662 22.3623 17C22.4678 16.5168 22.5234 16.0149 22.5234 15.5Z"/>
+                                        <path d="M2.52344 12.5C2.52344 17.214 2.52344 19.5711 3.9879 21.0355C5.45237 22.5 7.80939 22.5 12.5234 22.5H14.0234L14.0233 22.2409C14.0225 20.6325 14.0218 19.4754 14.3416 18.4914C14.9845 16.5125 16.536 14.9611 18.5148 14.3181C19.4988 13.9984 20.656 13.999 22.2643 13.9999L22.5234 14V12.5C22.5234 7.78595 22.5234 5.42893 21.059 3.96447C19.5945 2.5 17.2375 2.5 12.5234 2.5C7.80939 2.5 5.45237 2.5 3.9879 3.96447C2.52344 5.42893 2.52344 7.78595 2.52344 12.5Z"/>
+                                    </svg>                                                                               
+                                    <span>Notes</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              
+                                <div class="content">
+                                  <div x-cloak x-show="activeTab === 'timeline'" role="tabpanel">
+                                    <div class="pl-5 p-2.5 bg-white">
+                                         <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
+                                        <li class="mb-10 ml-6">            
+                                            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                                                <img class="rounded-full shadow-lg" src="./images/profile-picture.jpg" alt="Bonnie image"/>
+                                            </span>
+                                            <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+                                                <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">just now</time>
+                                                <div class="text-sm font-normal text-gray-500 dark:text-gray-300">Bonnie moved <a href="#" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">Jese Leos</a> to <span class="bg-gray-100 text-gray-800 text-xs font-normal mr-2 px-2.5 py-0.5 rounded dark:bg-gray-600 dark:text-gray-300">Funny Group</span></div>
+                                            </div>
+                                        </li>
+                                        <li class="mb-10 ml-6">
+                                            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                                                <img class="rounded-full shadow-lg" src="./images/profile-picture.jpg" alt="Thomas Lean image"/>
+                                            </span>
+                                            <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                                                <div class="items-center justify-between mb-3 sm:flex">
+                                                    <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">2 hours ago</time>
+                                                    <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300">Thomas Lean commented on  <a href="#" class="font-semibold text-gray-900 dark:text-white hover:underline">Flowbite Pro</a></div>
+                                                </div>
+                                                <div class="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">Hi ya'll! I wanted to share a webinar zeroheight is having regarding how to best measure your design system! This is the second session of our new webinar series on #DesignSystems discussions where we'll be speaking about Measurement.</div>
+                                            </div>
+                                        </li>
+                                        <li class="ml-6">
+                                            <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                                                <img class="rounded-full shadow-lg" src="./images/profile-picture.jpg" alt="Jese Leos image"/>
+                                            </span>
+                                            <div class="items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600">
+                                                <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">1 day ago</time>
+                                                <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300">Jese Leos has changed <a href="#" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">Pricing page</a> task status to  <span class="font-semibold text-gray-900 dark:text-white">Finished</span></div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                    </div>
+                                   
+
+                                  </div>
+                                  <div x-cloak x-show="activeTab === 'calendar'" role="tabpanel">Calendar</div>
+                                  <div x-cloak x-show="activeTab === 'notes'" role="tabpanel">Notes</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
