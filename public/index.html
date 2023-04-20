@@ -166,11 +166,10 @@
             </div>
         </div>
     </header>
-    <div class="flex bg-gray-200 h-[calc(100dvh-8rem)] md:h-[calc(100vh-4.5rem)]" x-data="{ menu: true, chats: true }"
-    x-init="if (window.innerWidth < 768) {chats = false}"
-    x-on:resize.window="
-    width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-        if (width < 768) {chats = false}"
+    <div class="flex bg-gray-200 h-[calc(100dvh-8rem)] md:h-[calc(100vh-4.5rem)]" 
+        x-on:resize.window="chats = (window.innerWidth < 768) ? false : true"
+        x-data="{ menu: true, chats: (window.innerWidth < 768)? false : true }"
+        x-init="window.addEventListener('touchstart', function(e) { startX = e.touches[0].pageX; }); window.addEventListener('touchmove', function(e) { if (startX - e.touches[0].pageX > 50) { chats = true; } })"
     >
         <aside class="absolute bottom-0 z-30 flex flex-shrink-0 w-full md:h-full md:flex-col md:relative" :class="menu ? 'md:w-20' : 'md:w-0'">
             <div class="relative flex w-full min-h-0 pt-0 bg-white border-gray-200 md:border-t md:border-r md:flex-1 md:flex-col">
@@ -375,9 +374,9 @@
                                                                 </button>
                                                             </div>
                                                         </div>
-                                                        <div class="overflow-x-auto">
+                                                        <div class="overflow-hidden hover:overflow-auto h-[calc(100dvh-304px)] overflow-y-hidden hover:overflow-y-auto">
                                                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                                <thead class="text-xs sticky top-0 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                                                     <tr>
                                                                         <th scope="col" class="p-4">
                                                                             <div class="flex items-center">
@@ -1088,7 +1087,7 @@
                               
                                 <div class="content">
                                   <div x-cloak x-show="activeTab === 'timeline'" role="tabpanel">
-                                    <div class="pl-5 p-2.5 bg-white">
+                                    <div class="pl-5 p-2.5 bg-white h-[calc(100dvh-174px)] overflow-y-hidden hover:overflow-y-auto">
                                          <ol class="relative border-l border-gray-200 dark:border-gray-700">                  
                                         <li class="mb-10 ml-6">            
                                             <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
@@ -1136,7 +1135,7 @@
         </div>
         <aside class="z-20 flex flex-col flex-shrink-0 h-full lg:flex" :class="chats ? 'w-20' : 'w-0'">
             <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-t border-l border-gray-200">
-                <div class="flex flex-col pt-5 pb-4 overflow-y-auto">
+                <div class="flex flex-col pt-5 pb-4 overflow-y-hidden hover:overflow-y-auto">
                     <div class="px-3 mb-5 space-y-1">
                         <h3 class="mb-5 text-xs font-medium text-center text-gray-500 underline underline-offset-8">Cases</h3>
                         <ul class="pb-5 space-y-3">
