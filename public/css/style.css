@@ -1345,26 +1345,30 @@ select {
   display: none !important;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar-track {
-	background-color: transparent;
-}
-::-webkit-scrollbar-track:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 9999px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(167 139 250 / var(--tw-bg-opacity));
-}
-::-webkit-scrollbar-thumb:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
-}
-::-webkit-scrollbar {
-	width: 4px;
-  height: 4px;
+@media (min-width: 768px){
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-track:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(167 139 250 / var(--tw-bg-opacity));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(109 40 217 / var(--tw-bg-opacity));
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
 }
 /* ::-webkit-scrollbar:hover{
   width: 4px;
@@ -1382,9 +1386,6 @@ select {
 /* scrollbar-width: none;   */
 /* Firefox */
 /*}*/
-.hover\:overflow-auto:hover {
-  overflow: auto;
-}
 .hover\:overflow-y-auto:hover {
   overflow-y: auto;
 }
@@ -1618,6 +1619,14 @@ select {
     height: 100%;
   }
 
+  .md\:h-\[calc\(100dvh-174px\)\] {
+    height: calc(100dvh - 174px);
+  }
+
+  .md\:h-\[calc\(100dvh-304px\)\] {
+    height: calc(100dvh - 304px);
+  }
+
   .md\:w-0 {
     width: 0px;
   }
@@ -1675,6 +1684,10 @@ select {
     overflow: hidden;
   }
 
+  .md\:overflow-y-hidden {
+    overflow-y: hidden;
+  }
+
   .md\:rounded-full {
     border-radius: 9999px;
   }
@@ -1714,6 +1727,14 @@ select {
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:hover\:overflow-auto:hover {
+    overflow: auto;
+  }
+
+  .md\:hover\:overflow-y-auto:hover {
+    overflow-y: auto;
   }
 }
 @media (min-width: 1024px) {
