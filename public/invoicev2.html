@@ -389,6 +389,80 @@
                                                                     <path d="M17.5 10.3932C17.5 11.3137 16.7538 12.0599 15.8333 12.0599C14.9129 12.0599 14.1667 11.3137 14.1667 10.3932C14.1667 9.47275 14.9129 8.72656 15.8333 8.72656C16.7538 8.72656 17.5 9.47275 17.5 10.3932Z" fill="#7E3AF2" />
                                                                 </svg>
                                                             </button>
+                                                            
+                                                            <div x-cloak class="z-10 absolute right-0 mt-2 w-40 rounded-md bg-white shadow-md focus-visible:outline-none"  x-ref="popover" x-menu:items x-transition.origin.top.right>
+                                                                <a x-menu:item href="#" :class="$menuItem.isActive && 'bg-gray-100 text-gray-900'" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left font-normal text-sm hover:bg-gray-100 disabled:text-gray-500">
+                                                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81211 14.7974C9.47917 15.1304 9.17992 15.4296 8.90441 15.6875H15.75C16.0607 15.6875 16.3125 15.9393 16.3125 16.25C16.3125 16.5607 16.0607 16.8125 15.75 16.8125H6.75C6.73624 16.8125 6.7226 16.812 6.70909 16.811C6.18117 16.7908 5.73329 16.5627 5.29397 16.2275C4.85343 15.8914 4.36154 15.3995 3.75952 14.7974L3.70255 14.7405C3.10052 14.1384 2.60862 13.6466 2.2725 13.206C1.92119 12.7456 1.6875 12.2757 1.6875 11.7142C1.6875 11.1526 1.92119 10.6828 2.2725 10.2223C2.60862 9.7818 3.10051 9.28993 3.70255 8.68791L8.18791 4.20256C8.78992 3.60052 9.2818 3.10862 9.72234 2.7725C10.1828 2.42119 10.6526 2.1875 11.2142 2.1875C11.7757 2.1875 12.2456 2.42119 12.706 2.7725C13.1466 3.10862 13.6384 3.60051 14.2405 4.20255L14.2974 4.25952C14.8995 4.86154 15.3914 5.35343 15.7275 5.79397C16.0788 6.25442 16.3125 6.72427 16.3125 7.28582C16.3125 7.84737 16.0788 8.31722 15.7275 8.77766C15.3914 9.21819 14.8995 9.71005 14.2975 10.3121L9.81211 14.7974ZM8.95491 5.02654C9.59242 4.38903 10.0314 3.95176 10.4047 3.6669C10.7651 3.39194 10.9975 3.3125 11.2142 3.3125C11.4309 3.3125 11.6633 3.39194 12.0236 3.6669C12.397 3.95176 12.8359 4.38903 13.4735 5.02654C14.111 5.66405 14.5482 6.10302 14.8331 6.47637C15.1081 6.83675 15.1875 7.06914 15.1875 7.28582C15.1875 7.50249 15.1081 7.73488 14.8331 8.09526C14.5482 8.46862 14.111 8.90758 13.4735 9.54509L10.3285 12.69L5.80997 8.17149L8.95491 5.02654ZM6.78582 15.6875C7.00249 15.6875 7.23488 15.6081 7.59526 15.3331C7.96862 15.0482 8.40758 14.611 9.04509 13.9735L9.53302 13.4855L5.01447 8.96699L4.52654 9.45491C3.88903 10.0924 3.45176 10.5314 3.1669 10.9047C2.89194 11.2651 2.8125 11.4975 2.8125 11.7142C2.8125 11.9309 2.89194 12.1633 3.1669 12.5236C3.45176 12.897 3.88903 13.3359 4.52654 13.9735C5.16405 14.611 5.60302 15.0482 5.97637 15.3331C6.33675 15.6081 6.56914 15.6875 6.78582 15.6875Z" fill="#1C274C"/>
+                                                                    </svg>                                                                        
+                                                                    Clear fields
+                                                                </a>
+                                                                <a x-menu:item href="#" :class="$menuItem.isActive && 'bg-gray-100 text-red-900'" class="flex items-center gap-2 text-red-500 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left font-normal text-sm hover:bg-gray-100 disabled:text-gray-500">
+                                                                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.73202 2.18751H10.2681C10.4304 2.18741 10.5718 2.18732 10.7053 2.20864C11.2328 2.29287 11.6892 2.62186 11.9359 3.09563C11.9984 3.21555 12.043 3.34971 12.0942 3.50371L12.1779 3.75488C12.1921 3.7974 12.1962 3.80943 12.1996 3.81891C12.3309 4.182 12.6715 4.42745 13.0575 4.43723C13.0676 4.43748 13.08 4.43753 13.1251 4.43753H15.3751C15.6857 4.43753 15.9376 4.68937 15.9376 5.00003C15.9376 5.31069 15.6857 5.56253 15.3751 5.56253H2.625C2.31434 5.56253 2.0625 5.31069 2.0625 5.00003C2.0625 4.68937 2.31434 4.43753 2.625 4.43753H4.87506C4.9201 4.43753 4.93253 4.43749 4.94267 4.43723C5.32866 4.42745 5.66918 4.18202 5.80052 3.81893C5.80397 3.80938 5.80794 3.79761 5.82218 3.75488L5.90589 3.50372C5.95711 3.34973 6.00174 3.21555 6.06419 3.09563C6.3109 2.62186 6.76735 2.29287 7.29482 2.20864C7.42834 2.18732 7.56973 2.18741 7.73202 2.18751ZM6.75611 4.43753C6.79475 4.36176 6.82898 4.28303 6.85843 4.20161C6.86737 4.17689 6.87615 4.15057 6.88742 4.11675L6.96227 3.89219C7.03065 3.68706 7.04639 3.64522 7.06201 3.61523C7.14424 3.45731 7.29639 3.34764 7.47222 3.31957C7.50561 3.31423 7.55027 3.31253 7.76651 3.31253H10.2336C10.4499 3.31253 10.4945 3.31423 10.5279 3.31957C10.7037 3.34764 10.8559 3.45731 10.9381 3.61523C10.9537 3.64522 10.9695 3.68705 11.0379 3.89219L11.1127 4.11662L11.1417 4.20163C11.1712 4.28304 11.2054 4.36177 11.244 4.43753H6.75611Z" fill="#EF4444"/>
+                                                                        <path d="M4.43632 6.83761C4.41565 6.52764 4.14762 6.29311 3.83765 6.31377C3.52767 6.33444 3.29314 6.60247 3.31381 6.91245L3.6614 12.1262C3.72552 13.0883 3.77731 13.8654 3.89879 14.4752C4.02509 15.1092 4.23991 15.6387 4.6836 16.0538C5.1273 16.4689 5.66996 16.6481 6.31095 16.7319C6.92747 16.8126 7.70628 16.8125 8.67045 16.8125H9.32963C10.2938 16.8125 11.0727 16.8126 11.6892 16.7319C12.3302 16.6481 12.8728 16.4689 13.3165 16.0538C13.7602 15.6387 13.975 15.1092 14.1013 14.4752C14.2228 13.8654 14.2746 13.0883 14.3387 12.1263L14.6863 6.91245C14.707 6.60247 14.4725 6.33444 14.1625 6.31377C13.8525 6.29311 13.5845 6.52764 13.5638 6.83761L13.2189 12.0119C13.1515 13.0228 13.1034 13.7262 12.998 14.2554C12.8958 14.7688 12.753 15.0405 12.5479 15.2323C12.3429 15.4242 12.0623 15.5485 11.5433 15.6164C11.0082 15.6864 10.3032 15.6875 9.29007 15.6875H8.71005C7.69692 15.6875 6.99192 15.6864 6.45686 15.6164C5.93786 15.5485 5.65724 15.4242 5.45218 15.2323C5.24712 15.0405 5.10438 14.7687 5.00211 14.2554C4.89669 13.7262 4.84867 13.0228 4.78127 12.0119L4.43632 6.83761Z" fill="#EF4444"/>
+                                                                        <path d="M7.0691 8.19032C7.37822 8.15941 7.65387 8.38494 7.68478 8.69406L8.05978 12.4441C8.09069 12.7532 7.86516 13.0288 7.55604 13.0597C7.24692 13.0906 6.97127 12.8651 6.94036 12.556L6.56536 8.806C6.53445 8.49688 6.75998 8.22123 7.0691 8.19032Z" fill="#EF4444"/>
+                                                                        <path d="M10.931 8.19032C11.2402 8.22123 11.4657 8.49688 11.4348 8.806L11.0598 12.556C11.0289 12.8651 10.7532 13.0906 10.4441 13.0597C10.135 13.0288 9.90945 12.7532 9.94036 12.4441L10.3154 8.69406C10.3463 8.38494 10.6219 8.15941 10.931 8.19032Z" fill="#EF4444"/>
+                                                                    </svg>
+                                                                    Delete
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white md:grid md:grid-cols-12 items-center justify-center w-full">
+                                                <td scope="row" class="px-1 py-1 md:col-span-3">
+                                                    <div class="flex flex-col font-medium overflow-hidden border border-g whitespace-nowrap focus:ring-blue-500 focus:border-blue-500 rounded-lg">
+                                                        <label for="countries" class="md:text-sm px-2 pt-2 text-xs font-normal text-gray-900">Select from service</label>
+                                                        <select id="countries" class="border-none px-2 text-gray-600 text-sm rounded-lg outline-none focus:ring-0 focus:border-none">
+                                                            <option selected="">Property Law</option>
+                                                            <option value="US">Saiqa haleema</option>
+                                                            <option value="CA">Qasim Muneer</option>
+                                                            <option value="FR">Muhammad Khurshid</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td class="px-1 py-1 md:col-span-2 w-24 md:w-full">
+                                                    <div class="flex flex-col overflow-hidden w-24 md:w-full font-medium border border-g whitespace-nowrap focus:ring-blue-500 focus:border-blue-500 rounded-lg">
+                                                        <select id="countries" class="border-none px-2 font-normal py-2 text-gray-600 text-sm rounded-lg outline-none focus:ring-0 focus:border-none">
+                                                            <option selected="">Fixed</option>
+                                                            <option selected="">%</option>
+                                                        </select>
+                                                        <input type="number" id="phone" class="border-none text-gray-900 text-sm focus:ring-0 focus:border-none block w-full px-2 pt-0 pb-2" required="">
+                                                    </div>
+                                                </td>
+                                                <td class="px-1 py-1 md:col-span-2 w-24 md:w-full">
+                                                    <div class="flex flex-col font-medium overflow-hidden w-24 md:w-full border border-g whitespace-nowrap focus:ring-blue-500 focus:border-blue-500 rounded-lg">
+                                                        <label for="price" class="md:text-sm text-xs font-normal text-gray-600 px-2 py-2">PKR</label>
+                                                        <input type="text" id="price" class="border-none text-gray-900 text-sm focus:ring-0 focus:border-none block w-full px-2 pt-0 pb-2" placeholder=" ">
+                                                    </div>
+                                                </td>
+                                                <td class="px-1 py-1 md:col-span-2 w-24 md:w-full">
+                                                    <div class="flex flex-col overflow-hidden w-24 md:w-full font-medium border border-g whitespace-nowrap focus:ring-blue-500 focus:border-blue-500 rounded-lg">
+                                                        <select id="countries" class="border-none px-2 font-normal py-2 text-gray-600 text-sm rounded-lg outline-none focus:ring-0 focus:border-none">
+                                                            <option selected="">%</option>
+                                                            <option selected="">Fixed</option>
+                                                        </select>
+                                                        <input type="number" id="phone" class="border-none text-gray-900 text-sm focus:ring-0 focus:border-none block w-full px-2 pt-0 pb-2" required="">
+                                                    </div>
+                                                </td>
+                                                <td class="px-1 py-1 md:col-span-2 w-24 md:w-full">
+                                                    <div class="flex flex-col font-medium overflow-hidden w-24 md:w-full border border-g whitespace-nowrap focus:ring-blue-500 focus:border-blue-500 rounded-lg">
+                                                        <label for="price" class="md:text-sm text-xs font-normal text-gray-600 px-2 py-2">PKR</label>
+                                                        <input type="text" id="price" class="border-none text-gray-900 text-sm focus:ring-0 focus:border-none block w-full px-2 pt-0 pb-2" placeholder=" ">
+                                                    </div>
+                                                </td>
+                                                <td class="px-1 py-1 md:col-span-1 text-center">
+                                                    <div x-data >
+                                                        <div x-menu>
+                                                            <button class="rounded-md bg-gray-100 h-8 w-8 mx-auto flex items-center justify-center" x-menu:button>
+                                                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M5.83333 10.3932C5.83333 11.3137 5.08714 12.0599 4.16667 12.0599C3.24619 12.0599 2.5 11.3137 2.5 10.3932C2.5 9.47275 3.24619 8.72656 4.16667 8.72656C5.08714 8.72656 5.83333 9.47275 5.83333 10.3932Z" fill="#7E3AF2" />
+                                                                    <path d="M11.6667 10.3932C11.6667 11.3137 10.9205 12.0599 10 12.0599C9.07953 12.0599 8.33333 11.3137 8.33333 10.3932C8.33333 9.47275 9.07953 8.72656 10 8.72656C10.9205 8.72656 11.6667 9.47275 11.6667 10.3932Z" fill="#7E3AF2" />
+                                                                    <path d="M17.5 10.3932C17.5 11.3137 16.7538 12.0599 15.8333 12.0599C14.9129 12.0599 14.1667 11.3137 14.1667 10.3932C14.1667 9.47275 14.9129 8.72656 15.8333 8.72656C16.7538 8.72656 17.5 9.47275 17.5 10.3932Z" fill="#7E3AF2" />
+                                                                </svg>
+                                                            </button>
                                                             <div x-cloak class="z-10 absolute right-0 mt-2 w-40 rounded-md bg-white shadow-md focus-visible:outline-none"  x-ref="popover" x-menu:items x-transition.origin.top.right>
                                                                 <a x-menu:item href="#" :class="$menuItem.isActive && 'bg-gray-100 text-gray-900'" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left font-normal text-sm hover:bg-gray-100 disabled:text-gray-500">
                                                                     <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
